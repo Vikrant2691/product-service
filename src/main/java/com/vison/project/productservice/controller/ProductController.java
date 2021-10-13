@@ -19,8 +19,6 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
-    @Value("${test.name}")
-    private String test;
 
     @GetMapping("/")
     public ResponseEntity<List<Product>> getAllProducts() {
@@ -37,11 +35,6 @@ public class ProductController {
     public ResponseEntity<Product> saveProduct(@RequestBody Product productToBeSaved) {
         System.out.println(productToBeSaved.toString());
         return ResponseEntity.ok(productService.saveProduct(productToBeSaved));
-    }
-
-    @GetMapping("/test")
-    public ResponseEntity<String> getTest() {
-        return ResponseEntity.ok(test);
     }
 
 
